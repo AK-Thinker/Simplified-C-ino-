@@ -188,3 +188,59 @@ Dans ta fonction `preparerProchainCoup()`, tu as écrit :
 `prochainCoup = millis() + random(1500, 4000);`
 
 C'est parfait. Mais attention : si tu restes devant le capteur *pendant* que l'état est `REPOS`, ton code va quand même lancer l'attaque. Pour une "IA" plus maligne, tu pourrais ajouter une condition : "Ne préparer le coup que si la distance est > 100" (pour vérifier que le boxeur est bien en position). 
+
+
+
+
+PROMPT 4 GEMINI : 
+
+
+
+Question Andy : Evalue moi le niveau de competences que l'on peut acquérir avec ce programme une fois parfaitement bien compris ? 
+
+
+
+REPONSE GEMINI : 
+
+
+
+C'est un excellent projet. Si tu maîtrises ce programme dans les moindres détails, tu n'es plus un débutant : tu entres dans la catégorie des développeurs intermédiaires/avancés.
+
+Pourquoi ? Parce que ce code ne se contente pas de "faire marcher un truc", il utilise les trois piliers du développement professionnel en informatique embarquée.
+
+1. La Machine à États (Le "Switch-Case")
+C'est la base de tout système pro.
+
+Pourquoi c'est Pro : Dans l'industrie (un ascenseur, un distributeur de billets, un thermostat), on ne code jamais de manière linéaire. On définit des états et des transitions.
+
+Ce que tu acquiers : La capacité à concevoir des systèmes complexes sans qu'ils deviennent des "usines à gaz" (code illisible). Si tu comprends pourquoi REPOS passe à ATTAQUE, tu peux programmer n'importe quel automatisme industriel.
+
+2. Le multitâche sans OS (Le "Non-blocking code")
+L'utilisation de millis() au lieu de delay() est la frontière entre le jouet et l'outil.
+
+Pourquoi c'est Pro : Un processeur doit pouvoir faire plusieurs choses à la fois (surveiller un bouton pendant qu'une LED clignote). delay() "tue" le processeur pendant qu'il attend. millis() le laisse libre.
+
+Ce que tu acquiers : La maîtrise du timing. C'est crucial pour la gestion des protocoles de communication ou la sécurité (ex: arrêter un moteur d'urgence pendant un calcul).
+
+3. La gestion des entrées/sorties "bruyantes"
+Ton code gère la distance, le son (buzzer) et la lumière de façon synchronisée.
+
+Pourquoi c'est Pro : Tu as intégré une fonction lireDistance() qui gère les cas d'erreur (le return 999 si duree == 0).
+
+Ce que tu acquiers : La notion de robustesse. Un pro prévoit toujours le moment où le capteur va "bugger".
+
+Les 4 questions pour savoir si tu le maîtrises "Niveau Pro" :
+Pour passer au niveau d'excellence que tu vises, vérifie si tu peux répondre à ceci (ou modifier le code pour le faire) :
+
+Le Débordement (Overflow) : millis() revient à zéro après 50 jours. Est-ce que ton calcul maintenant - tempsPhase >= 350 fonctionnerait encore à ce moment-là ? (Indice : avec des unsigned long, la réponse est oui, mais sais-tu pourquoi ?)
+
+L'Optimisation : Ton code utilise beaucoup de int et de long. Pourrais-tu économiser de la RAM en utilisant des byte ou des uint8_t là où les nombres sont petits ?
+
+La Réactivité : Si tu voulais que l'attaque soit vraiment aléatoire, comment pourrais-tu améliorer le randomSeed ?
+
+La Lisibilité : Si tu devais ajouter un deuxième capteur pour un deuxième joueur, est-ce que ton switch-case resterait propre ou deviendrait-il un chaos ?
+
+Mon Verdict
+Si tu comprends chaque ligne, chaque accolade et surtout pourquoi tu as choisi cette structure plutôt qu'une suite de if/else et de delay, alors oui : tu as acquis des bases solides pour le monde professionnel.
+
+La prochaine étape pour toi serait d'apprendre à séparer ce code en plusieurs fichiers ou à créer une Classe (Programmation Orientée Objet) pour gérer ton capteur.
