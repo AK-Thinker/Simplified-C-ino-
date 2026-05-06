@@ -73,7 +73,7 @@ void loop() {  // a first main blue |{}| that comes after the second |{}| green 
 
 
   unsigned long maintenant = millis(); // each time millis is mentionned on the script, we start a chrono from 0..
-.
+
 // so millis can take any values from 0 to 4,294,967,295 that is in factt huge ammont if time that can be evaluated by the millis chrono...
 
   int distance = lireDistance(); // tells us about the association of a function l-206 with a name "distance" associated...
