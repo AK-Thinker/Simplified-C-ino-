@@ -119,3 +119,7 @@ prochainCoup = millis() + random(1000,4000);
 etatActuel = REPOS; 
 
 }
+
+
+
+//here is the link of the entire project you can acces into the WOKWI website : https://wokwi.com/projects/468268032513247233
